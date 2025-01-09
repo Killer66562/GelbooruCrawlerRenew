@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gelboorucrawler"
+version = "0.1.0"
+description = "A renewed version of Gelbooru Crawler"
+authors = [
+    { name = "Killer66562", email = "jimmy688382@gmail.com" }
+]
+license = { text = "MIT" }
+dependencies = [
+    "aiohttp",
+    "aiofiles"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
