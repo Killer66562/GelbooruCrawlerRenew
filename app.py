@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import dotenv
+import os
 
 from gelbooru_crawler import Crawler, UserInfo
 
@@ -26,8 +27,11 @@ async def main():
 
     args = parser.parse_args()
 
-    user_id = dotenv.get_key(dotenv_path=".env", key_to_get="USER_ID")
-    api_key = dotenv.get_key(dotenv_path=".env", key_to_get="API_KEY")
+    user_id = os.environ.get("USER_ID")
+    api_key = os.environ.get("API_KEY")
+
+    user_id = "" if user_id is None else user_id
+    api_key = "" if api_key is None else api_key
 
     user_info = UserInfo(user_id, api_key)
     crawler = Crawler(user_info)
